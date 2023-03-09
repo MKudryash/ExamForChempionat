@@ -6,11 +6,6 @@ using System.Threading.Tasks;
 
 namespace ExamForChempionat.Model
 {
-    public class Bookss
-    {
-        public List<Book> json { get; set; }
-
-    }
     public class Book
     {
         public int ID { get; set; }

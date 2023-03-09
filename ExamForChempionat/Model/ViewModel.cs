@@ -15,7 +15,7 @@ namespace ExamForChempionat.Model
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public async Task<Bookss> GetApi()
+        public async Task<List<Book>> GetApi()
         {
             HttpClient client = new HttpClient();
             var response = await client.GetAsync(@"https://iis.ngknn.ru/NGKNN/МамшеваЮС/Экзамен/api/Books");
@@ -23,9 +23,8 @@ namespace ExamForChempionat.Model
             allBooks = JsonConvert.DeserializeObject<List<Book>>(json);
 
             PropertyChanged(this, new PropertyChangedEventArgs("GetBooks"));
-            return booksJson;
+            return allBooks;
         }
-        Bookss booksJson;
         List<Book> allBooks { get; set; } = new List<Book>();
 
         public List<Book> GetBooks  
